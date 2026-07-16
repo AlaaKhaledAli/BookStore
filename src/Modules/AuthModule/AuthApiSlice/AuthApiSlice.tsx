@@ -29,9 +29,6 @@ export const AuthApiSlice=createApi({
         })
     })
 })
-interface LoginResponse{
-    token: string,
-}
 interface AuthState{
     accessToken: string | null,
     user: any | null,

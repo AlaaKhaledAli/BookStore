@@ -1,5 +1,4 @@
-import { Box, Container, Grid } from '@mui/material'
-import Card from '@mui/material/Card';
+import { Box, Grid } from '@mui/material'
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Outlet } from 'react-router-dom';

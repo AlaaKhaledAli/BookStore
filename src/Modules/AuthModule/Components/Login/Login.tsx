@@ -5,7 +5,7 @@ import type {LoginFormData} from "../../../../Constants/LoginFormData/LoginFormD
 import { useDispatch } from "react-redux";
 import {useLoginMutation,setCredentials} from "../../AuthApiSlice/AuthApiSlice";
 export default function Login() {
-    const [createLogin,{isLoading:isLoginLoading,error:loginError}]=useLoginMutation();
+    const [createLogin]=useLoginMutation();
     let {register,formState:{errors},handleSubmit}=useForm<LoginFormData>();
     const navigate = useNavigate();
     const dispatch = useDispatch();

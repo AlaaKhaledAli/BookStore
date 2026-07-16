@@ -1,12 +1,12 @@
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography, type SelectChangeEvent } from "@mui/material"
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material"
 import { blue } from "@mui/material/colors"
 import { Controller, useForm } from "react-hook-form";
 import type { RegisterFormData } from "../../../../Constants/RegisterFormData/RegisterFormData";
 import { useRegisterMutation } from "../../AuthApiSlice/AuthApiSlice";
 import { Link,useNavigate } from "react-router-dom"
 export default function Register() {
-  const [createRegister, { isLoading: isRegisterLoading, error: registerError }] = useRegisterMutation();
-  let { control,register, formState: { errors }, handleSubmit } = useForm<RegisterFormData>();
+  const [createRegister] = useRegisterMutation();
+  let { control,register, handleSubmit } = useForm<RegisterFormData>();
   const navigate=useNavigate();
   let onSubmit = async (data: RegisterFormData) => {
     let res = await createRegister(data).unwrap();
