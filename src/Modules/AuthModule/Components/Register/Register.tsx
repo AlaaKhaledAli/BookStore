@@ -3,19 +3,19 @@ import { blue } from "@mui/material/colors"
 import { Controller, useForm } from "react-hook-form";
 import type { RegisterFormData } from "../../../../Constants/RegisterFormData/RegisterFormData";
 import { useRegisterMutation } from "../../AuthApiSlice/AuthApiSlice";
-import { Link,useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 export default function Register() {
   const [createRegister] = useRegisterMutation();
-  let { control,register, handleSubmit } = useForm<RegisterFormData>();
-  const navigate=useNavigate();
+  let { control, register, handleSubmit, formState: { errors } } = useForm<RegisterFormData>();
+  const navigate = useNavigate();
   let onSubmit = async (data: RegisterFormData) => {
     let res = await createRegister(data).unwrap();
     console.log(res);
-        navigate("/Auth");
+    navigate("/Auth");
   }
   return (
     <>
-      <Box sx={{ width: "auto" }}>
+      <div className="px-10 md:px-15 lg:px-25">
         <Typography component="div" variant="h6" my={2} color='text.secondary'>
           Create new acccount
         </Typography>
@@ -29,37 +29,51 @@ export default function Register() {
         }} my={1} gutterBottom>
           Register
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)} >
+        <form onSubmit={handleSubmit(onSubmit)} noValidate >
           <Box sx={{ display: 'flex', flexDirection: 'column', mt: 3 }}>
             <Box sx={{ display: "flex" }}>
               <Box sx={{ display: "inline-flex", flexDirection: "column", flexGrow: 1 }}>
                 <label style={{ marginBottom: '10px' }} >First Name</label>
                 <TextField variant="outlined" sx={{ mb: 2 }} {...register("firstName", { required: "First name is required" })} />
-
+                <p className="text-red-600">{errors.firstName?.message}</p>
               </Box>
               <Box sx={{ display: "inline-flex", flexDirection: "column", flexGrow: 1, paddingLeft: "16px" }}>
                 <label style={{ marginBottom: '10px' }} >Last Name</label>
-                <TextField variant="outlined" sx={{ mb: 2 }} {...register("lastName", { required: "Password is required" })} />
+                <TextField variant="outlined" sx={{ mb: 2 }} {...register("lastName", { required: "Last Name is required" })} />
+                <p className="text-red-600">{errors.lastName?.message}</p>
               </Box>
             </Box>
             <label style={{ marginBottom: '16px' }} >E-mail</label>
-            <TextField variant="outlined" sx={{ mb: 2 }} {...register("email", { required: "Email is required" })} />
+            <TextField variant="outlined" sx={{ mb: 2 }} {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+\.\S+$/,
+                message: "Invalid email address"
+              }
+            })} />
+            <p className="text-red-600">{errors.email?.message}</p>
             <label style={{ marginBottom: '16px' }} >Password</label>
-            <TextField variant="outlined" type="password" style={{}}  {...register("password", { required: "Password is required" })} />
+            <TextField variant="outlined" type="password" style={{}}  {...register("password", {
+              required: "Password is required",
+              pattern: {
+                value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                message: "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character"
+              }
+            })} />
+            <p className="text-red-600">{errors.password?.message}</p>
             <FormControl variant="filled" sx={{ my: 5, minWidth: 120 }}>
-              <InputLabel id="demo-simple-select-filled-label">Age</InputLabel>
+              <InputLabel id="demo-simple-select-filled-label">Role</InputLabel>
               <Controller
-                name="age"
+                name="role"
                 control={control}
-                rules={{ required: "Age is required" }}
+                rules={{ required: "role is required" }}
                 render={({ field }) => (
                   <Select
                     {...field}
-                    label="Age"
+                    label="Role"
                   >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={"publisher"}>Publisher</MenuItem>
+                    <MenuItem value={"reader"}>Reader</MenuItem>
                   </Select>
                 )}
               />
@@ -72,7 +86,7 @@ export default function Register() {
             </Link>
           </Box>
         </form>
-      </Box>
+      </div>
     </>
   )
 }

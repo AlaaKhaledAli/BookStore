@@ -5,9 +5,11 @@ import Footer from '../Footer/Footer'
 export default function MasterLayout() {
   return (
     <>
-    <Navbar/>
-    <Outlet/>
-    <Footer/>
+      <div className="min-h-dvh flex flex-col justify-between">
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </div>
     </>
   )
 }

@@ -39,8 +39,8 @@ interface RootState{
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    accessToken: null,
-    user: null,
+    accessToken: localStorage.getItem("token"),
+    user: localStorage.getItem("token") ? "user" : null,
   } as AuthState, 
   reducers: {
     setCredentials: (state, { payload }: { payload: AuthState }) => {

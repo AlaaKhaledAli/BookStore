@@ -9,6 +9,8 @@ import ForgetPass from './Modules/AuthModule/Components/Forget/ForgetPass'
 import Login from './Modules/AuthModule/Components/Login/Login'
 import Change from './Modules/AuthModule/Components/Change/Change'
 import Reset from './Modules/AuthModule/Components/Reset/Reset'
+import MasterLayout from './Modules/SharedModule/Components/MasterLayout/MasterLayout'
+
 function App() {
 
   return (
@@ -23,8 +25,10 @@ function App() {
             <Route path='Reset' element={<Reset />} />
           </Route>
           <Route element={<ProtectedRoutes />}>
-            <Route path='/' element={<Home />} />
-            <Route path='/listing-books' element={<ListingBooks />} />
+            <Route element={<MasterLayout />}>
+              <Route path='/' element={<Home />} />
+              <Route path='/listing-books' element={<ListingBooks />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

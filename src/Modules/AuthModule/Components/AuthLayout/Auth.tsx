@@ -1,41 +1,23 @@
-import { Box, Grid } from '@mui/material'
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import { Outlet } from 'react-router-dom';
 
 export default function Auth() {
     return (
         <>
-            <Grid container spacing={2}>
-
-                <Grid size={{xs:12,md:6}}>
-                    <Box>
-                        <CardMedia
-                            component="img"
-                            sx={{ maxWidth: '100%', maxHeight: "100dvh" }}
-                            image="images/loginImg.jpg"
-                            alt="Live from space album cover"
-                        />
-                    </Box>
-                    </Grid>
-                <Grid size={{xs:12,md:6}}>
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', my: 5, alignItems: 'center' }}>
-                    <CardContent sx={{ width: "0.8" }}>
-                        <CardMedia
-                            component="img"
-                            sx={{ mx: 'auto', width: '25%', Height: "100dvh", mb: 5 }}
-                            image="images/Logo.png"
+            <div className="grid grid-cols-1 md:grid-cols-2 items-stretch">
+                <div className=" hidden md:block min-h-dvh" style={{ background: "url('images/loginImg.jpg') center/cover" }}>
+                </div>
+                <div className="flex flex-col pt-5 items-center">
+                    <div >
+                        <img
+                            className="mx-auto mb-5"
+                            src="images/Logo.png"
                             alt="Live from space album cover"
                         />
                         <Outlet />
 
-                    </CardContent>
-                </Box>
-                </Grid>
-
-
-            </Grid>
-
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
