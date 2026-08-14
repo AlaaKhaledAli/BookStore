@@ -10,6 +10,7 @@ import Login from './Modules/AuthModule/Components/Login/Login'
 import Change from './Modules/AuthModule/Components/Change/Change'
 import Reset from './Modules/AuthModule/Components/Reset/Reset'
 import MasterLayout from './Modules/SharedModule/Components/MasterLayout/MasterLayout'
+import Cart from './Modules/CartModule/Components/Cart/Cart'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Route element={<MasterLayout />}>
               <Route path='/' element={<Home />} />
               <Route path='/listing-books' element={<ListingBooks />} />
+              <Route path='/cart' element={<Cart />} />
             </Route>
           </Route>
         </Routes>

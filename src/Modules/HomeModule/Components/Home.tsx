@@ -23,7 +23,7 @@ export default function Home() {
                 <Link to="/about">About</Link>
               </li>
               <li className="border-r-2 pr-5 border-[#D1D1D1]">
-                <Link to="/books"> BOOKS</Link>
+                <Link to="/listing-books"> BOOKS</Link>
               </li>
               <li className="border-r-2 pr-5 border-[#D1D1D1]">
                 <Link to="/new-releases">  NEW RELEASE </Link>
@@ -50,8 +50,8 @@ export default function Home() {
               <li className="border-r-2 pr-5 border-[#D1D1D1]">
                 <Link to="/cart">
                   <i>
-                    <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.33442 10.7112C-0.0452584 7.61487 0.747967 2.97036 4.71409 1.42219C8.68022 -0.125985 11.0599 2.97036 11.8531 4.51853C12.6463 2.97036 15.8192 -0.125985 19.7854 1.42219C23.7515 2.97036 23.7515 7.61487 21.3718 10.7112C18.9921 13.8076 11.8531 20.0002 11.8531 20.0002C11.8531 20.0002 4.71409 13.8076 2.33442 10.7112Z" stroke="#393280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.00036 0C6.01455 0 4.38454 1.64715 4.38454 3.65385V4.38462H0.813559L0.768723 5.07008L0.0455595 18.2239L0 19H16L15.9552 18.2232L15.232 5.06935L15.1864 4.38462H11.6162V3.65385C11.6162 1.64715 9.98617 0 8.00036 0ZM8.00036 1.46154C8.57575 1.46154 9.12757 1.69251 9.53442 2.10365C9.94128 2.51479 10.1699 3.07241 10.1699 3.65385V4.38462H5.83087V3.65385C5.83087 3.07241 6.05944 2.51479 6.4663 2.10365C6.87316 1.69251 7.42498 1.46154 8.00036 1.46154ZM2.16949 5.84615H4.38454V8.03846H5.83087V5.84615H10.1699V8.03846H11.6162V5.84615H13.8312L14.464 17.5385H1.53745L2.16949 5.84615Z" fill="#393280" />
                     </svg>
                   </i>
                 </Link>
@@ -121,7 +121,7 @@ export default function Home() {
       <section id="featured">
         <div className="featured bg-linear-to-tr from-[#FBEEEE] to-[#F7FFFE]">
           <div className="swiper-container">
-            <FeaturedSwiper/>
+            <FeaturedSwiper />
           </div>
         </div>
       </section>
