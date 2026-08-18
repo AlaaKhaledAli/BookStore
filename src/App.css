@@ -1,4 +1,6 @@
 @import "tailwindcss";
 *{
 box-sizing: border-box;
+/* overflow: hidden; */
+/* border: red 1px solid; */
 }

@@ -13,7 +13,7 @@ export default function Navbar() {
             </i>
             <p className="">+91 8374902234</p>
           </div>
-          <div className="flex justify-between items-center gap-x-10">
+          <div className="flex justify-between items-center md:gap-x-10 gap-x-5">
             <i className="text-white flex justify-center items-center transform  ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

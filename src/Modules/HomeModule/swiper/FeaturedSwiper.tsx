@@ -27,9 +27,12 @@ export default function FeaturedSwiper() {
 
         >
           <SwiperSlide>
-            <div className="card text-start flex flex-wrap  py-10 justify-end bg-[url('/images/home/featured.png')] bg-no-repeat bg-w-full bg-contain bg-start mx-15">
-              <div className="content basis-6/12 py-10 flex flex-col ">
-                <h2 className="font-semibold text-[48px] text-[#393280]  ">Featured book</h2>
+            <div className="card text-start flex flex-wrap  py-10 justify-end   lg:bg-[url('/images/home/featured.png')]  md:bg-[url('/images/home/featured.png')] md:bg-size-[300px_auto] lg:bg-size-[500px_auto] bg-no-repeat bg-w-full bg-start mx-15">
+              <div className="content basis-12/12 lg:basis-6/12 md:basis-5/12 py-10 flex flex-col ">
+                <div className="img-container visible md:hidden">
+                  <img src="images/home/featured.png" alt="" />
+                </div>
+                <h2 className="font-semibold text-[48px]  md:text-[32px] lg:text-[48px] text-[#393280]  ">Featured book</h2>
                 <div className="horizontal-line h-0.5 bg-[#ED553B] w-[25%] mt-11.25"></div>
                 <h3 className="font-medium text-[13px] text-[#888888] mt-2.75 uppercase  tracking-[16%] ">
                   By

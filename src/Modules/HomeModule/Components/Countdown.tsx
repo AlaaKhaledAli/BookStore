@@ -23,20 +23,20 @@ export default function Countdown() {
         <>
             <div className="counter-wrapper flex flex-wrap gap-10 uppercase mb-17.5">
                 <div className="box">
-                    <div className="value text-[#ED553B] font-bold text-[26px] ">{timeLeft.days}</div>
-                    <div className="label">Days</div>
+                    <div className="value text-[#ED553B] font-bold md:text-[26px]  text-[20px]">{timeLeft.days}</div>
+                    <div className="label  text-[10px] md:text-[16px]">Days</div>
                 </div>
                 <div className="box">
-                    <div className="value text-[#ED553B] font-bold text-[26px] ">{timeLeft.hours}</div>
-                    <div className="label">Hour</div>
+                    <div className="value text-[#ED553B] font-bold md:text-[26px]  text-[20px]">{timeLeft.hours}</div>
+                    <div className="label  text-[10px] md:text-[16px]">Hour</div>
                 </div>
                 <div className="box">
-                    <div className="value text-[#ED553B] font-bold text-[26px] ">{timeLeft.minutes}</div>
-                    <div className="label">Minute</div>
+                    <div className="value text-[#ED553B] font-bold md:text-[26px]  text-[20px]">{timeLeft.minutes}</div>
+                    <div className="label  text-[10px] md:text-[16px]">Minute</div>
                 </div>
                 <div className="box">
-                    <div className="value text-[#ED553B] font-bold text-[26px]  ">{timeLeft.seconds}</div>
-                    <div className="label">Second</div>
+                    <div className="value text-[#ED553B] font-bold md:text-[26px]  text-[20px]">{timeLeft.seconds}</div>
+                    <div className="label  text-[10px] md:text-[16px]">Second</div>
                 </div>
             </div>
         </>

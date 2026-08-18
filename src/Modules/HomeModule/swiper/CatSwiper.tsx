@@ -4,27 +4,47 @@ import { Autoplay, Navigation } from "swiper/modules";
 
 // Import Swiper styles
 import 'swiper/css/bundle';
+import { useRef } from 'react';
 export default function CategorySwiper() {
+  const nextRef = useRef(null)
+  const prevRef = useRef(null)
   return (
     <>
       <div className="overflow-hidden my-6 px-1">
         <Swiper
           modules={[Autoplay, Navigation]}
           loop={true}
-          spaceBetween={10}
-          slidesPerView={3}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 5
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10
+            },
+            900: {
+              slidesPerView: 3,
+              spaceBetween: 10
+            },
+          }}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
-          autoplay={{
-            delay: 1000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
+          // autoplay={{
+          //   delay: 1000,
+          //   disableOnInteraction: false,
+          //   pauseOnMouseEnter: true,
+          // }}
           navigation={{
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: nextRef.current,
+            prevEl: prevRef.current,
           }}
-
+          onBeforeInit={(swiper) => {
+            if (swiper.params.navigation) {
+              swiper.params.navigation.nextEl = nextRef.current;
+              swiper.params.navigation.prevEl = prevRef.current;
+            }
+          }}
         >
           <SwiperSlide>
             <div className="card text-center text-[#393280]">
@@ -59,7 +79,11 @@ export default function CategorySwiper() {
             </div>
           </SwiperSlide>
         </Swiper>
-      </div>
+        {/* <div className="swiper-controls absolute bg-black top-0 right-0 ">
+          <button ref={prevRef} className="swiper-button-prev bg-black"></button>
+          <button ref={nextRef} className="swiper-button-next bg-black"></button>
+        </div> */}
+      </div >
 
     </>
   )

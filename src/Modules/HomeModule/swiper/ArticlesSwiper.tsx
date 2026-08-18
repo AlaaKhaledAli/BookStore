@@ -15,6 +15,20 @@ export default function ArticlesSwiper() {
           slidesPerView={3}
           onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => console.log(swiper)}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 5
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10
+            },
+            900: {
+              slidesPerView: 3,
+              spaceBetween: 10
+            },
+          }}
           // autoplay={{
           //   delay: 1000,
           //   disableOnInteraction: false,
